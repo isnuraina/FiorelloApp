@@ -1,0 +1,22 @@
+﻿@model Adventure
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Model.Name</h4>
+                <p>
+                    @Model.Description
+                </p>
+                <h4 class="card-title">@Model.Price Azn</h4>
+                
+                <img src="~/assets/img/@Model.Image" style="width:600px !important; height:500px !important;" />
+
+                <p class="card-description">
+                    @Model.CreatedDate?.ToString("dd,MM,yyyy")
+                </p>
+
+                <a asp-action="index" class="btn btn-outline-github">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>

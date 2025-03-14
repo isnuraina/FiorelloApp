@@ -1,0 +1,14 @@
+﻿@model Slider
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <img src="~/assets/img/@Model.ImageUrl" style="width:600px !important; height:500px !important;" />
+                <p class="card-description">
+                    @Model.CreatedDate?.ToString("dd,MM,yyyy")
+                </p>
+                <a asp-action="index" class="btn btn-outline-github">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>

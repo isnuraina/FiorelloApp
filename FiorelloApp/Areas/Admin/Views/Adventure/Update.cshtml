@@ -1,0 +1,41 @@
+﻿@model AdventureUpdateVM
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Adventure Update Form</h4>
+
+                <form class="forms-sample" method="post" asp-action="update" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" id="exampleInputName" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" id="exampleInputDes" placeholder="Description">
+                        <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price"></label>
+                        <input asp-for="Price" class="form-control" id="exampleInputDes" placeholder="Price">
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Photo"></label>
+                        <input asp-for="Photo" class="form-control" id="exampleInputName" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Photo"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <a asp-action="index" class="btn btn-light">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationPartial" />
+}

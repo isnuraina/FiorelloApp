@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Blog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section id="blog">
+    <div class="container">
+        <div class="row pb-5" id="blogList">
+            <input type="hidden" value="@ViewBag.BlogCount" id="blogCount" />
+            @await Component.InvokeAsync("Blog")
+        </div>
+        <div class="row justify-content-center">
+            <button class="btn-primary btn" id="loadMore">Load More....</button>
+        </div>
+    </div>
+</section>

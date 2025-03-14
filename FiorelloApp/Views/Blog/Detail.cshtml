@@ -1,0 +1,31 @@
+﻿@model Blog
+
+@{
+    ViewData["Title"] = "Detail";
+}
+<section id="blog">
+    <div class="container">
+        <div class="row pb-5 text mt-3 text-center px-5 d-flex justify-content-center align-items-center flex-column" style="text-align: center;">
+
+                <div class="col-md-6 col-lg-4 ">
+                    <div class="item ">
+                        <div class="img position-relative ">
+                            <a asp-controller="blog" asp-action="detail" asp-route-id="@Model.Id">
+                                <img src="~/assets/img/@Model.ImageUrl" class="img-fluid" alt="">
+                            </a>
+                            <div class="date rounded bg-light position-absolute py-1 px-2">
+                                <span>@Model.CreatedDate?.ToString("dd.MM.yyyy")</span>
+                            </div>
+                        </div>
+                        <div class="text mt-3 text-center px-5">
+                            <a class="text-decoration-none text-dark" asp-controller="blog" asp-action="detail" asp-route-id="@Model.Id">
+                                <h5>@Model.Title</h5>
+                            </a>
+                            <p class="text-black-50">@Model.Description</p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</section>

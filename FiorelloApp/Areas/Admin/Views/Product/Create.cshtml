@@ -1,0 +1,54 @@
+﻿@model ProductCreateVM
+@{
+    var categories = ViewBag.Categories;
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Product Create Form</h4>
+
+                <form class="forms-sample" method="post" asp-action="create" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" id="exampleInputName" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Price"></label>
+                        <input asp-for="Price" class="form-control" id="exampleInputDes" placeholder="Price">
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Count"></label>
+                        <input asp-for="Count" class="form-control" id="exampleInputDes" placeholder="Count">
+                        <span class="text-danger" asp-validation-for="Count"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photos"></label>
+                        <input asp-for="Photos" class="form-control" id="exampleInputDes" placeholder="Count">
+                        <span class="text-danger" asp-validation-for="Photos"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <select asp-for="CategoryId" asp-items="@categories">
+                         @*    @foreach(var category in categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            } *@
+                        </select>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary me-2">Create</button>
+                    <a asp-action="index" class="btn btn-light">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationPartial" />
+}

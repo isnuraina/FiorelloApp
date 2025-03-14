@@ -1,0 +1,18 @@
+﻿@model Category
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Model.Name</h4>
+                <p class="card-description">
+                    @Model.CreatedDate?.ToString("dd,MM,yyyy")
+                </p>
+                <p>
+                    @Model.Description
+                </p>
+                <img src="~/assets/img/@Model.Products.FirstOrDefault()?.ProductImages.FirstOrDefault(c=>c.IsMain)?.ImageUrl" />
+                <a asp-action="index" class="btn btn-outline-github">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model List<BasketVM>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">BasketCount</th>
+                    <th scope="col">Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var product in Model)
+                {
+                    <tr>
+                        <td>
+                            <img  src="~/assets/img/@product.Image" width="150" height="150" />
+                        </td>
+                        <td>@product.Name</td>
+                        <td>@product.BasketCount</td>
+                        <td>
+                            <a asp-action="delete" asp-route-id="@product.Id">
+                                x
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

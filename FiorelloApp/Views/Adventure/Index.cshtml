@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Adventure>
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                <div class="product-item text-center" data-id="@product.Name">
+                    <div class="img">
+                        <a asp-controller="Adventure" asp-action="Detail" asp-route-id="@product.Id">
+                            <img src="~/assets/img/@(product.Image)" class="product-image" alt="">
+                        </a>
+                    </div>
+                    <div class="title mt-3">
+                        <h6>@product.Name</h6>
+                    </div>
+                    <div class="price">
+                        <a asp-controller="adventure" asp-action="addbasketadventure" asp-route-id="@product.Id">
+                            <span class="text-black-50">Add to cart</span>
+                        </a>
+                        <span class="text-black-50">$@product.Price</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .product-image {
+        width: 100%; 
+        height: 250px; 
+        object-fit: cover; 
+        border-radius: 10px; 
+    }
+</style>

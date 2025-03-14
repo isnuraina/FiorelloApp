@@ -1,0 +1,26 @@
+﻿@model SliderUpdateVM
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <img src="~/assets/img/@Model.ImageUrl" width="500" height="100" />
+            <div class="card-body">
+                <h4 class="card-title">Slider Update Form</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo"></label>
+                        <input asp-for="Photo" class="form-control" id="exampleInputName" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Photo"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <a asp-action="index" class="btn btn-light">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationPartial" />
+}

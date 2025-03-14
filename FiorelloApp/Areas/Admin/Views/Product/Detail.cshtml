@@ -1,0 +1,50 @@
+﻿@model Product
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Model.Name</h4>
+                <p>
+                    @Model.Category.Name
+                </p>
+                <p>
+                    @Model.Category.Description
+                </p>
+
+                <h4 class="card-title">@Model.Price Azn</h4>
+
+               @*  <img src="~/assets/img/@Model.ProductImages?.FirstOrDefault(p => p.IsMain)?.ImageUrl"
+                style="width:600px !important; height:500px !important;" />
+                <p>main photo</p>
+
+                @foreach (var product in Model.ProductImages?.Where(p => !p.IsMain))
+                {
+                    <img src="~/assets/img/@product.ImageUrl"
+                    style="width:200px !important; height:200px !important;" />
+                } *@
+                @foreach(var image in Model.ProductImages)
+                {
+                    if (image.IsMain)
+                    {
+                        <img src="~/assets/img/@image.ImageUrl"
+                        style="width:600px !important; height:500px !important;" />
+                        <p class="btn btn-success">main photo</p> <br />  <br />
+                    }
+                    else
+                    {
+                        <img src="~/assets/img/@image.ImageUrl"
+                             style="width:200px !important; height:200px !important;" />
+                             <a class="btn btn-success" asp-action="SetMainPhoto" asp-route-id="@image.Id">set main photo</a>
+                    }
+                }
+
+
+                <p class="card-description">
+                    @Model.CreatedDate?.ToString("dd,MM,yyyy")
+                </p>
+
+                <a asp-action="index" class="btn btn-outline-github">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
